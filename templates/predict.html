@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container" data-aos="fade-up">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      {% if pred == 1 %}
+        <div class="card shadow-sm text-white bg-danger mb-4" data-aos="zoom-in">
+          <div class="card-body text-center">
+            <h1 class="card-title display-4"><i class="fas fa-exclamation-triangle"></i> Kidney Disease Detected</h1>
+            <p class="lead">Please consult a doctor immediately. Prioritize a kidney-friendly diet and regular checkups.</p>
+            <hr class="my-4 bg-light">
+            <p>Health Tip: Reduce salt intake to support kidney function.</p>
+            <a class="btn btn-light btn-lg" href="https://www.who.int/" target="_blank">Learn More</a>
+          </div>
+        </div>
+      {% else %}
+        <div class="card shadow-sm text-white bg-success mb-4" data-aos="zoom-in">
+          <div class="card-body text-center">
+            <h1 class="card-title display-4"><i class="fas fa-check-circle"></i> You're Healthy!</h1>
+            <p class="lead">No signs of kidney disease detected. Keep maintaining a healthy lifestyle!</p>
+            <hr class="my-4 bg-light">
+            <p>Health Tip: Stay hydrated with 8 glasses of water daily.</p>
+            <a class="btn btn-light btn-lg" href="https://www.who.int/" target="_blank">Learn More</a>
+          </div>
+        </div>
+      {% endif %}
+      <div class="text-center">
+        <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

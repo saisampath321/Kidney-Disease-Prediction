@@ -1,0 +1,171 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+  {% if message %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" data-aos="fade-up">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+
+  <!-- Health Tips Carousel -->
+  <div id="healthTipsCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-aos="fade-up">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card text-white bg-primary">
+          <div class="card-body">
+            <h5 class="card-title">Stay Hydrated</h5>
+            <p class="card-text">Drink at least 8 glasses of water daily to support kidney function.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card text-white bg-success">
+          <div class="card-body">
+            <h5 class="card-title">Low-Sodium Diet</h5>
+            <p class="card-text">Reduce salt intake to prevent kidney strain.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card text-white bg-info">
+          <div class="card-body">
+            <h5 class="card-title">Regular Checkups</h5>
+            <p class="card-text">Monitor blood pressure and kidney function regularly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#healthTipsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#healthTipsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Jumbotron -->
+  <div class="p-5 text-white rounded bg-dark text-center" data-aos="zoom-in">
+    <h1 class="display-4">Chronic Kidney Disease Prediction</h1>
+    <p class="lead">Using advanced machine learning to predict kidney disease with high accuracy.</p>
+    <a href="https://en.wikipedia.org/wiki/Kidney_disease" class="btn btn-primary btn-lg">Learn More</a>
+  </div>
+
+  <!-- Widgets Section -->
+  <div class="row mt-5">
+    <!-- BMI Calculator -->
+    <div class="col-md-6 mb-4" data-aos="fade-right">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">BMI Calculator</h3>
+          <div class="mb-3">
+            <label for="height" class="form-label">Height (cm)</label>
+            <input type="number" class="form-control" id="height" placeholder="e.g., 170">
+          </div>
+          <div class="mb-3">
+            <label for="weight" class="form-label">Weight (kg)</label>
+            <input type="number" class="form-control" id="weight" placeholder="e.g., 70">
+          </div>
+          <button class="btn btn-primary" onclick="calculateBMI()">Calculate</button>
+          <p class="mt-3" id="bmi-result"></p>
+        </div>
+      </div>
+    </div>
+    <!-- Hydration Tracker -->
+    <div class="col-md-6 mb-4" data-aos="fade-left">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Hydration Tracker</h3>
+          <p>Track your daily water intake:</p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-info" role="progressbar" id="hydration-progress" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+          </div>
+          <button class="btn btn-info" onclick="addWater()">Add 250ml</button>
+          <p class="mt-3" id="hydration-status">Goal: 2000ml/day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Algorithm Cards -->
+  <div class="row mb-5">
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Random Forest</h3>
+          <p class="card-text">A supervised learning algorithm that builds multiple decision trees for accurate predictions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">XGBoost</h3>
+          <p class="card-text">A gradient boosting algorithm optimized for speed and performance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featurettes -->
+  <div class="row">
+    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+      <img class="rounded-circle mb-3" src="https://cdn.icon-icons.com/icons2/2593/PNG/512/data_icon_154512.png" alt="Data" width="140" height="140">
+      <h2>Data Set</h2>
+      <p>Utilizes a Kaggle dataset with 1338 records for accurate kidney disease prediction.</p>
+    </div>
+    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+      <img class="rounded-circle mb-3" src="https://www.edureka.co/blog/wp-content/uploads/2019/01/Classification-Random-Forest-Random-Forest-In-R-Edureka-2-381x300.png" alt="Algorithm" width="140" height="140">
+      <h2>Algorithm</h2>
+      <p>Random Forest and XGBoost ensure robust classification with 98% accuracy.</p>
+    </div>
+    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="300">
+      <img class="rounded-circle mb-3" src="https://cdn.pixabay.com/photo/2016/05/25/13/18/target-1414775_960_720.png" alt="Accuracy" width="140" height="140">
+      <h2>Accuracy</h2>
+      <p>Achieves 98% accuracy in predicting kidney disease.</p>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <!-- Additional Information -->
+  <div class="card shadow-sm mb-5" data-aos="fade-up">
+    <div class="card-body">
+      <h2>How It Works</h2>
+      <p>This application uses machine learning to predict kidney disease, aiding healthcare professionals.</p>
+      <h2>Future Implementations</h2>
+      <p>Plans include Django deployment and X-ray image processing for enhanced diagnostics.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function calculateBMI() {
+  const height = parseFloat(document.getElementById('height').value) / 100;
+  const weight = parseFloat(document.getElementById('weight').value);
+  if (height && weight) {
+    const bmi = (weight / (height * height)).toFixed(1);
+    let status = '';
+    if (bmi < 18.5) status = 'Underweight';
+    else if (bmi < 25) status = 'Normal';
+    else if (bmi < 30) status = 'Overweight';
+    else status = 'Obese';
+    document.getElementById('bmi-result').innerHTML = `Your BMI: ${bmi} (${status})`;
+  } else {
+    document.getElementById('bmi-result').innerHTML = 'Please enter valid height and weight.';
+  }
+}
+
+let waterIntake = 0;
+const dailyGoal = 2000;
+function addWater() {
+  waterIntake += 250;
+  const percentage = Math.min((waterIntake / dailyGoal) * 100, 100);
+  document.getElementById('hydration-progress').style.width = `${percentage}%`;
+  document.getElementById('hydration-progress').textContent = `${percentage.toFixed(0)}%`;
+  document.getElementById('hydration-status').innerHTML = `Current: ${waterIntake}ml / Goal: ${dailyGoal}ml`;
+}
+</script>
+{% endblock %}
