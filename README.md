@@ -1,3 +1,4 @@
+
 # Chronic-Kidney-Disease-Prediction
 
 This web application was developed using the **Flask** web framework. The predictive models were trained on comprehensive datasets, enabling high accuracy in predicting chronic kidney disease. 
@@ -23,6 +24,10 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
+![homepage](https://github.com/user-attachments/assets/1e1ef1b7-1fe9-4f7b-8733-c797c5cd04ae)
+![chatbot](https://github.com/user-attachments/assets/80cd393e-96ca-4792-a995-597af5c57c33)
+![predictionPage](https://github.com/user-attachments/assets/190bbb5a-7d2a-4f4a-8b73-778290c4319f)
+![outputpage](https://github.com/user-attachments/assets/9f8b1bb4-9117-4627-85d5-66afae1896ba)
 
 ## Dataset Links
 
